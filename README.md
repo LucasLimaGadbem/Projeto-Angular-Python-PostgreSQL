@@ -6,7 +6,7 @@ Criar um server, criar um banco de dados e rodar o arquivo sql
 
 ## Código
 
-Dar o comando npm start
+Dar o comando npm start e clicar no link que gerar
 
 ## Api
 
