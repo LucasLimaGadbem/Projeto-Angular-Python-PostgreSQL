@@ -1,6 +1,6 @@
 # Como rodar o projeto
 
-## Banco de dados
+## Banco de dados (PostgreSQL)
 
 Criar um server, criar um banco de dados e rodar o arquivo sql
 
