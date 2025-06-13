@@ -1,0 +1,29 @@
+<form #form="ngForm" (ngSubmit)="criarTarefa(form)">
+  <input type="text" name="titulo" [(ngModel)]="novaTarefa.title" placeholder="Título" required />
+  <textarea name="descricao" [(ngModel)]="novaTarefa.description" rows="3" placeholder="Descrição" required></textarea>
+  <input type="date" name="dataVencimento" [(ngModel)]="novaTarefa.due_date" required />
+  <button type="submit">Cadastrar Tarefa</button>
+</form>
+
+<select [(ngModel)]="filtro">
+  <option value="todas">Todas</option>
+  <option value="pendente">Pendentes</option>
+  <option value="concluida">Concluídas</option>
+</select>
+
+<ul>
+  <li *ngFor="let tarefa of tarefasFiltradas()" [ngClass]="{ 'concluida': tarefa.is_done }">
+    <div class="detalhes">
+      <strong>{{ tarefa.title }}</strong><br />
+      {{ tarefa.description }}<br />
+      <small>Vence em: {{ tarefa.due_date | date: 'dd/MM/yyyy' }}</small>
+    </div>
+  
+    <div class="acoes">
+      <button *ngIf="!tarefa.is_done" (click)="concluir(tarefa.id)">Concluir</button>
+  
+      <button (click)="remover(tarefa.id)">Remover</button>
+    </div>
+  </li>
+  
+</ul>
